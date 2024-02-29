@@ -7,17 +7,19 @@ from .models import Product, ProductVariant
 from .serializers import ProductSerializer, ProductVariantSerializer,BulkProductSerializer
 import time
 from memory_profiler import profile
+from rest_framework.pagination import PageNumberPagination
+
+
 
 # Create your views here.
-class ProductListAPIView(APIView):
+class ProductListAPIView(APIView,PageNumberPagination):
     def get(self,request: Request):
+        
         products=Product.objects.all()
-        serializer=ProductSerializer(instance=products,many=True)
-        response={
-            "message":"here are all the products",
-            "data":serializer.data
-        }
-        return Response(data=response,status=status.HTTP_200_OK)
+        products=self.paginate_queryset(products,request,view=self)
+        serializer=ProductSerializer(products,many=True)
+        
+        return self.get_paginated_response(serializer.data)
   
     def post(self,request : Request):
         product=request.data
@@ -32,15 +34,13 @@ class ProductListAPIView(APIView):
             return Response(data=response,status=status.HTTP_201_CREATED)
         return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
-class BulkProductListAPIView(APIView):
+class BulkProductListAPIView(APIView,PageNumberPagination):
     def get(self,request: Request):
         products=Product.objects.all()
+        products=self.paginate_queryset(products,request,view=self)
         serializer=BulkProductSerializer(instance=products,many=True)
-        response={
-            "message":"here are all the products",
-            "data":serializer.data
-        }
-        return Response(data=response,status=status.HTTP_200_OK)
+        return self.get_paginated_response(serializer.data)
+        
   
     def post(self,request : Request):
         product=request.data
