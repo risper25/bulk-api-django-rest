@@ -26,7 +26,7 @@ class ProductListAPIView(APIView):
         if serializer.is_valid():
             serializer.save()
             response={
-                "message":"product saved succesfully",
+                "message":"products saved succesfully",
                 "data":serializer.data
             }
             return Response(data=response,status=status.HTTP_201_CREATED)
@@ -49,7 +49,7 @@ class BulkProductListAPIView(APIView):
         if serializer.is_valid():
             serializer.save()
             response={
-                "message":"product saved succesfully",
+                "message":"products saved succesfully",
                 "data":serializer.data
             }
             return Response(data=response,status=status.HTTP_201_CREATED)

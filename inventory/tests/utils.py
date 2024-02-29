@@ -17,7 +17,7 @@ def generate_product_data(num_products,save=False):
             "image": f"product{i+1}.jpg",
             "variants": []
         }
-        n=random.randint(1, 5)#random number of variants
+        n=random.randint(1, 50)#random number of variants
         for j in range(n): 
             variant = {
                 "sku": f"variant{j+1}",

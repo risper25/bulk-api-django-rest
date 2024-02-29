@@ -20,7 +20,7 @@ class TestViews(APITestCase):
         Product.objects.all().delete()    
         ProductVariant.objects.all().delete()    
     
-    #@profile
+    @profile
     def test_loop_add_products_and_variants_10(self):
         data=self.test_data[:10]
         url = reverse('products')
@@ -29,17 +29,17 @@ class TestViews(APITestCase):
         execution_time = time.time() - start_time
         logger.info("Execution time for 10 products: %s seconds", execution_time)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-    #@profile
-    def test_loop_add_products_and_variants_500(self):
-        data=self.test_data[:500]
+    @profile
+    def test_loop_add_products_and_variants_100(self):
+        data=self.test_data[:100]
         url = reverse('products')
         start_time = time.time()
         response = self.client.post(url, data, format='json')
         execution_time = time.time() - start_time
-        logger.info("Execution time for 500 products: %s seconds", execution_time)
+        logger.info("Execution time for 100 products: %s seconds", execution_time)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED) 
 
-    #@profile
+    @profile
     def test_loop_add_products_and_variants_1000(self):
         data=self.test_data[:1000]
         url = reverse('products')
@@ -51,7 +51,7 @@ class TestViews(APITestCase):
         
 
    
-    #@profile
+    @profile
     def test_bulk_add_products_and_variants_10(self):
         data=self.test_data[:10]
         url = reverse('products-bulk')
@@ -60,17 +60,17 @@ class TestViews(APITestCase):
         execution_time = time.time() - start_time
         logger.info("Execution time for 10 products-bulk: %s seconds", execution_time)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-    #@profile
-    def test_bulk_add_products_and_variants_500(self):
-        data=self.test_data[:500]
+    @profile
+    def test_bulk_add_products_and_variants_100(self):
+        data=self.test_data[:100]
         url = reverse('products-bulk')
         start_time = time.time()
         response = self.client.post(url, data, format='json')
         execution_time = time.time() - start_time
-        logger.info("Execution time for 500 products-bulk: %s seconds", execution_time)
+        logger.info("Execution time for 100 products-bulk: %s seconds", execution_time)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED) 
 
-    #@profile
+    @profile
     def test_bulk_add_products_and_variants_1000(self):
         data=self.test_data[:1000]
         url = reverse('products-bulk')

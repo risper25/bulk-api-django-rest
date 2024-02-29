@@ -107,7 +107,10 @@ LOGGING = {
         },
     },
 }
-
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10  
+}
 
 
 # Password validation
@@ -150,3 +153,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#variables
+MAX_PRODUCT_VARIANTS=10
+MAX_PRODUCTS=1500
+NUM_BATCHES=4
