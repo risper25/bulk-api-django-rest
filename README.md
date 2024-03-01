@@ -48,10 +48,10 @@
 </ul>
 <h4>memory usage:</h4>
 <ul>
-  <li>Memory was constant for both solutions</li>
+  <li>There was a slight increase in memory for the bulk insertion solution compared to the sequential insertion solution</li>
 </ul>
 
-<p>Solution 2 Bulk Insertion is the optimal solution</p>
+<p>Solution 2 Bulk Insertion is the more optimal solution because of faster runtime</p>
 
 </body>
 </html>
