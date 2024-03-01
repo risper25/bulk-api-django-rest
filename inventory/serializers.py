@@ -26,7 +26,6 @@ class ProductSerializer(serializers.ModelSerializer):
          return product
         
 class ProductBulkCreateSerializer(serializers.ListSerializer):
-   
     def create(self, validated_data):
         variants_data = [item.pop('variants') for item in validated_data]
 
