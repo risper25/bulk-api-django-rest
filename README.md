@@ -19,6 +19,8 @@
 <p><img src="model.png" alt="Model"></p>
 
 <h2>Endpoints</h2>
+<p>Run the application using the following command:</p>
+<pre><code>python manage.py runserver</code></pre>
 <ul>
 <li>Products Endpoint: <a href="http://127.0.0.1:8000/inventory/products">http://127.0.0.1:8000/inventory/products</a></li>
 <li>Bulk Products Endpoint: <a href="http://127.0.0.1:8000/inventory/products-bulk">http://127.0.0.1:8000/inventory/products-bulk</a></li>
@@ -39,9 +41,17 @@
 <p>Endpoint: <a href="http://127.0.0.1:8000/inventory/products-bulk">http://127.0.0.1:8000/inventory/products-bulk</a></p>
 <p>Test Results:</p>
 <p><img src="bulk.png" alt="Bulk Create Method"></p>
-<h3>Analysis</h3>
+<h2>Analysis:</h2>
+<h4>Runtime:</h4>
+<ul>
+  <li>Blulk Insertion solution has approximately less runtime than the sequential solution. Especially for the larger dataset as seen with the 1000 products the execution time decreased from 26.08s to 8.44s.</li>
+</ul>
+<h4>memory usage:</h4>
+<ul>
+  <li>Memory was constant for both solutions</li>
+</ul>
 
-<p>Solution 2 Bulk Insertion is a more efficient method for large datasets in terms of execution time.</p>
+<p>Solution 2 Bulk Insertion is the optimal solution</p>
 
 </body>
 </html>
